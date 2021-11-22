@@ -2,10 +2,13 @@ import Image from 'next/image';
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from '@heroicons/react/outline';
 import { useSession, signIn, signOut } from 'next-auth/client';
 import { useRouter } from 'next/dist/client/router';
+import { useSelector } from 'react-redux';
+import { selectItems } from '../slices/basketSlice';
 
 const Header = () => {
   const [session] = useSession();
   const router = useRouter();
+  const items = useSelector(selectItems);
 
   const handleHome = () => {
     router.push('/');
@@ -46,7 +49,7 @@ const Header = () => {
           </div>
           <div className="link flex items-center" onClick={handleBasket}>
             <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
-              0
+              {items.length}
             </span>
             <ShoppingCartIcon className="h-10 " />
             <p className="hidden md:inline font-extrabold md:text-sm mt-2">Basket</p>
