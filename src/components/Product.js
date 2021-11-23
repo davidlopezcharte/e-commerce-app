@@ -17,13 +17,24 @@ const Product = ({ id, title, price, description, category, image }) => {
   }, []);
 
   const addItemToBasket = () => {
-    const product = { id, title, price, description, category, image };
+    const product = {
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+      hasPrime,
+      rating,
+    };
     dispatch(addToBasket(product));
   };
   return (
     mounted && (
       <div className="relative flex flex-col m-5 bg-white z-30 p-10">
-        <p className="absolute top-2 right-2 text-xs text-gray-400">{category}</p>
+        <p className="absolute top-2 right-2 text-xs text-gray-400">
+          {category}
+        </p>
 
         <Image src={image} width="200" height="200" objectFit="contain" />
 
@@ -45,7 +56,11 @@ const Product = ({ id, title, price, description, category, image }) => {
 
         {hasPrime && (
           <div className="flex items-center space-x-2 -mt-5">
-            <img className="w-12" src="https://links.papareact.com/fdw" alt="" />
+            <img
+              className="w-12"
+              src="https://links.papareact.com/fdw"
+              alt=""
+            />
             <p className="text-xs text-gray-500">Free Next-day Delivery</p>
           </div>
         )}
