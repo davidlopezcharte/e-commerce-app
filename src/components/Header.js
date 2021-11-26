@@ -1,5 +1,9 @@
 import Image from 'next/image';
-import { MenuIcon, SearchIcon, ShoppingCartIcon } from '@heroicons/react/outline';
+import {
+  MenuIcon,
+  SearchIcon,
+  ShoppingCartIcon,
+} from '@heroicons/react/outline';
 import { useSession, signIn, signOut } from 'next-auth/client';
 import { useRouter } from 'next/dist/client/router';
 import { useSelector } from 'react-redux';
@@ -24,7 +28,7 @@ const Header = () => {
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
           <Image
             onClick={handleHome}
-            src="https://links.papareact.com/f90"
+            src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
             width={140}
             height={40}
             objectFit="contain"
@@ -52,7 +56,9 @@ const Header = () => {
               {items.length}
             </span>
             <ShoppingCartIcon className="h-10 " />
-            <p className="hidden md:inline font-extrabold md:text-sm mt-2">Basket</p>
+            <p className="hidden md:inline font-extrabold md:text-sm mt-2">
+              Basket
+            </p>
           </div>
         </div>
       </div>
