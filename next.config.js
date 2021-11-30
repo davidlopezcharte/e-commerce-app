@@ -10,5 +10,6 @@ module.exports = {
   },
   env: {
     BASE_URL: process.env.BASE_URL,
+    stripe_public_key: process.env.STRIPE_PUBLIC_KEY,
   },
 };
